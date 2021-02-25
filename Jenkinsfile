@@ -42,11 +42,12 @@ pipeline {
 		echo 'deploying applicationi'
 	   }
         }
+    }
+
      post {
                 success {
                     sh "echo success"
                 }
         }
-    }
 }
 
