@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+    enviornment {
+	WORKSPACE = "/app/jenkins-tutrial"
+	BRANDCODE = $brandcode 
+}
     stages {
         stage('Build') {
             steps {
@@ -15,8 +18,8 @@ pipeline {
                     git config user.name 'joshi'
                     git remote set-url origin https://Joshi101:ba81dc97636feb1ed3e00adca8fe370f7b6aef4f@github.com/Joshi101/jenkins-tutorial.git
                     git status
-                    echo creating ${brandcode}
-                    touch ${brandcode}.txt
+                    echo creating ${BRANDCODE}
+                    touch ${BRANDCODE}.txt
                     CHANGED=$(git diff-index --name-only HEAD --)
                     if [ -n "$CHANGED" ]
                     then
@@ -28,11 +31,17 @@ pipeline {
 
             }
 
-            post {
+        }
+     stage('Test'){
+		echo 'testing application'
+	}
+     stage('deploy'){
+		echo 'deploying applicationi'
+        }
+     post {
                 success {
                     sh "echo success"
                 }
-            }
         }
     }
 }
