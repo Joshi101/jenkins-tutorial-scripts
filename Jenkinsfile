@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    enviornment {
+    environment {
 	WORKSPACE = "/app/jenkins-tutrial"
 	BRANDCODE = $brandcode 
 }
@@ -33,10 +33,14 @@ pipeline {
 
         }
      stage('Test'){
+	  steps{	
 		echo 'testing application'
-	}
+	   }	
+       }
      stage('deploy'){
+	  steps{
 		echo 'deploying applicationi'
+	   }
         }
      post {
                 success {
