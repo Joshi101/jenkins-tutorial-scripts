@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
 	WORKSPACE = "/app/jenkins-tutrial"
-	BRANDCODE = $brandcode 
+	BRANDCODE = ${brandcode} 
 }
     stages {
         stage('Build') {
