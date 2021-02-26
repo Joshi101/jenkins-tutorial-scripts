@@ -5,6 +5,7 @@ pipeline {
 	LESSFILEPATH = "./style"
 	BRANDCODE = "${brandcode}" 
 	TOKEN = credentials("git-token")
+	PRIMARY_COLOR = "${color}"
 }
     stages {
         stage('Build') {
@@ -26,6 +27,7 @@ pipeline {
                     mkdir -p ${LESSFILEPATH}/${BRANDCODE}
                     cd ${LESSFILEPATH}/${BRANDCODE}
                     touch ${BRANDCODE}.less
+                    echo @color: ${PRIMARY_COLOR} > ${BRANDCODE}.less
                     CHANGED=\$(git diff-index --name-only HEAD --)
                     echo \$CHANGED
                     if [ -n \$CHANGED ]
