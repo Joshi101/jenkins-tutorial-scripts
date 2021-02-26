@@ -20,7 +20,7 @@ pipeline {
                     cd jenkins-tutorial
                     git config user.email 'ritesh.joshi101@gmail.com'
                     git config user.name 'joshi101'
-                    git remote set-url origin https://Joshi101:409e96a25354538c436192bd6ac831b8bbcad6bc@github.com/Joshi101/jenkins-tutorial.git
+                    git remote set-url origin https://Joshi101:36b43c07c5c6bed297f3ee36f617260e3378fe17@github.com/Joshi101/jenkins-tutorial.git
                     git status
                     mkdir -p ${LESSFILEPATH}/${BRANDCODE}
                     cd ${LESSFILEPATH}/${BRANDCODE}
