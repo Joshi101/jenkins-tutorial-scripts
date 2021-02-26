@@ -4,11 +4,12 @@ pipeline {
 	WORKSPACE = "/app/jenkins-tutrial"
 	LESSFILEPATH = "./style"
 	BRANDCODE = "${brandcode}" 
+	TOKEN = credentials("git-token")
 }
     stages {
         stage('Build') {
             steps {
-               
+
                 sh """
                     mkdir -p ${WORKSPACE}
                     cd ${WORKSPACE}
@@ -20,7 +21,7 @@ pipeline {
                     cd jenkins-tutorial
                     git config user.email 'ritesh.joshi101@gmail.com'
                     git config user.name 'joshi101'
-                    git remote set-url origin https://Joshi101@github.com/Joshi101/jenkins-tutorial.git
+                    git remote set-url origin https://Joshi101:${TOKEN}@github.com/Joshi101/jenkins-tutorial.git
                     git status
                     mkdir -p ${LESSFILEPATH}/${BRANDCODE}
                     cd ${LESSFILEPATH}/${BRANDCODE}
