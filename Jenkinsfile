@@ -26,6 +26,10 @@ pipeline {
                     git status
                     mkdir -p ${LESSFILEPATH}/${BRANDCODE}
                     cd ${LESSFILEPATH}/${BRANDCODE}
+		    if [ -d ${BRANDCODE}.less ]
+                    then 
+                        rm ${BRANDCODE}.less
+                    fi
                     touch ${BRANDCODE}.less
                     echo @color: ${PRIMARY_COLOR} > ${BRANDCODE}.less
                     CHANGED=\$(git diff-index --name-only HEAD --)
